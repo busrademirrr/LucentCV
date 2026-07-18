@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, History, Sparkles, Menu } from "lucide-react";
+import { LayoutDashboard, History, Sparkles, Menu, LogOut, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/context/AuthContext";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
-} from "@/components/ui/sheet"; // Need to install sheet
+} from "@/components/ui/sheet";
 
 const routes = [
   {
@@ -25,6 +26,7 @@ const routes = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const { user, signOut } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -88,10 +90,32 @@ export function Navbar() {
         </div>
 
         {/* Right side actions */}
-        <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button variant="outline" size="sm" className="hidden md:flex">
-            Guest Mode
-          </Button>
+        <div className="flex flex-1 items-center justify-end space-x-4">
+          {user ? (
+            <div className="flex items-center space-x-3">
+              <span className="text-xs text-muted-foreground hidden lg:inline-block max-w-[150px] truncate">
+                {user.email}
+              </span>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={signOut}
+                className="text-muted-foreground hover:text-foreground flex items-center gap-1.5"
+              >
+                <LogOut className="h-4 w-4" />
+                <span className="hidden md:inline">Log out</span>
+              </Button>
+            </div>
+          ) : (
+            pathname !== "/login" && pathname !== "/register" && (
+              <Link href="/login">
+                <Button size="sm" className="flex items-center gap-1.5">
+                  <LogIn className="h-4 w-4" />
+                  Sign In
+                </Button>
+              </Link>
+            )
+          )}
         </div>
       </div>
     </header>
