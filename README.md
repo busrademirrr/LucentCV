@@ -215,6 +215,66 @@ Sprint sonunda geliştirilen ürün ve teknik süreç ekip tarafından değerlen
 
 # Sprint 2
 
+## Sprint 2 Product Backlog
+
+| # | Task | SP (Story Point) | Sorumlu | Durum |
+|---|---|---|---|---|
+| 1 | Streamlit'ten Next.js (frontend) ve FastAPI (backend) mimarisine geçiş | 8 | Büşra | ✅ Done |
+| 2 | Supabase DB entegrasyonu ve temel UI altyapısının kurulması | 5 | Büşra | ✅ Done |
+| 3 | E-posta/Şifre ile Giriş ve Kayıt (Login/Register) sayfaları ve API entegrasyonu | 3 | Asil | ✅ Done |
+| 4 | Oturum Yönetimi (Session Management) ve Korumalı Rotalar (Protected Routes) | 3 | Asil | ✅ Done |
+| 5 | Google Authentication (OAuth) entegrasyonunun tamamlanması | 3 | Asil | ✅ Done |
+| 6 | Mülakat Simülasyonu (Interview Simulation) kısmının çalışır hale getirilmesi | 5 | Burak | ✅ Done |
+| 7 | Dark / Light Mode geçişlerinin eklenmesi | 2 | Burak | ✅ Done |
+| 8 | PDF Export (Sonuçları PDF olarak dışa aktarma) özelliğinin eklenmesi | 5 | Nuri | ✅ Done |
+| 9 | Yerel tarayıcı popup'larının (window.alert/confirm) Shadcn/Sonner ile değiştirilmesi | 3 | Nuri | ✅ Done |
+
+**Toplam Tahmini Puan:** 37 SP
+**Tamamlanan Puan:** 37 SP
+**Devam Eden Puan:** 0 SP
+
+---
+
+## Backlog Düzeni ve Story Seçimleri
+
+Sprint 2 planlama toplantısı yapılmıştır. Bu sprintte projenin Streamlit monolit yapısından modern Next.js frontend + FastAPI backend mimarisine taşınması, Supabase entegrasyonu, kimlik doğrulama/oturum yönetimi katmanlarının yazılması, mülakat simülasyonunun ve PDF çıktısının aktif edilmesi hedeflenmiştir. 
+
+Toplam sprint kapasitesi ekip üyelerinin genişlemesiyle birlikte **37 Story Point (SP)** olarak belirlenmiştir.
+
+### US-06: Modern Mimari Dönüşümü ve Temel UI Altyapısı (13 SP)
+* **Açıklama:** Bir yazılımcı/geliştirici olarak, uygulamanın Streamlit tabanlı monolitik yapısını Next.js ve FastAPI olarak iki katmana bölmek istiyorum; böylece uygulamanın ölçeklenebilirliğini, hızını ve UI esnekliğini artırabilirim.
+* **Kabul Kriterleri (Acceptance Criteria):**
+  * Next.js (frontend) ve FastAPI (backend) iskelet yapısının kurulması.
+  * API haberleşme altyapısının kurulması.
+  * Tasarım sistemine (Tailwind CSS, Shadcn) uygun temel dashboard şablonlarının çıkarılması.
+  * Supabase DB bağlantısının gerçekleştirilmesi.
+  * *Sorumlu:* Büşra
+
+### US-07: Kimlik Doğrulama, Oturum Yönetimi ve Google Auth (9 SP)
+* **Açıklama:** Bir aday olarak, uygulamaya e-posta/şifre veya Google hesabımla giriş yapabilmek, oturumumu açık tutabilmek ve çıkış yapabilmek istiyorum; böylece kişisel analiz geçmişimi güvenle saklayabilirim.
+* **Kabul Kriterleri (Acceptance Criteria):**
+  * Supabase Auth kullanılarak Kayıt ve Giriş ekranlarının kodlanması.
+  * Korumalı rotalar (`AuthGuard`) aracılığıyla yetkisiz kullanıcıların engellenmesi.
+  * Google OAuth ile tek tıkla giriş desteğinin aktif edilmesi.
+  * Çıkış (Logout) fonksiyonunun Navbar'a entegre edilmesi.
+  * *Sorumlu:* Asil
+
+### US-08: Mülakat Simülasyonu ve Arayüz Temaları (7 SP)
+* **Açıklama:** Bir aday olarak, CV ve ilan analiz sonuçlarıma göre oluşturulan mülakat sorularını interaktif olarak cevaplayabilmek ve arayüzü göz yormayacak şekilde karanlık/aydınlık temalarda görebilmek istiyorum.
+* **Kabul Kriterleri (Acceptance Criteria):**
+  * Mülakat soruları ve cevap değerlendirme modülünün frontend'de çalışır hale getirilmesi.
+  * Dark / Light mode geçişinin (Next Themes) tüm bileşenlerle uyumlu şekilde eklenmesi.
+  * *Sorumlu:* Burak
+
+### US-09: Modern Bildirimler, Popup'lar ve PDF Çıktı Entegrasyonu (8 SP)
+* **Açıklama:** Bir aday olarak, analiz sonuçlarımı ve mülakat raporlarımı PDF olarak dışa aktarabilmek, verilerimi silerken veya işlem yaparken modern uyarı pencereleriyle karşılaşmak istiyorum.
+* **Kabul Kriterleri (Acceptance Criteria):**
+  * Ham tarayıcı diyaloglarının (`window.alert`, `window.confirm`) Shadcn AlertDialog ve Sonner/Toast bildirimleri ile değiştirilmesi.
+  * Analiz raporlarının PDF formatında başarıyla dışa aktarılması.
+  * *Sorumlu:* Nuri
+
+---
+
 ## Daily Scrum
 
 Sprint 2 süresince ekip üyelerinin farklı çalışma saatlerine sahip olması nedeniyle Daily Scrum toplantıları senkron olarak gerçekleştirilememiştir. Bunun yerine proje yönetimi, görev takibi ve teknik iletişim Slack üzerinden asenkron olarak yürütülmüştür.
